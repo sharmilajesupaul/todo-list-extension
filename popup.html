@@ -5,79 +5,67 @@
  value "popup.html".
  -->
 <html>
+
 <head>
   <title>Getting Started Extension's Popup</title>
   <link rel="stylesheet" href="vendor/foundation.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <link rel="stylesheet" href="styles/popup.css">
   <script src="vendor/jquery-2.2.3.min.js"></script>
-  <style>
-  body {
-    font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-    font-size: 14px;
-  }
-  
-  .title {
-    padding-top: 5px;
-  }
-  
-  #status {
-    /* avoid an excessively wide status text */
-    white-space: pre;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    max-width: 400px;
-  }
-  
-  .fa.fa-eye {
-    font-size: 18px;
-    margin-top: -1px;
-    vertical-align: middle;
-  }
-  
-  .button:focus {
-    outline: none;
-    /* overrides chrome default focus outline */
-  }
-  
-  button.padding-mini {
-    padding: 5px;
-    margin-bottom: 0px;
-  }
-  </style>
   <!--
       - JavaScript and HTML must be in separate files: see our Content Security
       - Policy documentation[1] for details and explanation.
       -
       - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
      -->
-  <script src="vendor/foundation.min.js"></script>
-  <script src="popup.js"></script>
 </head>
 
 <body>
   <table style="width: 200px;">
     <thead>
       <tr>
-        <th width="200">
+        <th>
           <span class="title pull-left">Todo List</span>
-          <button id="openTab" class="hollow button padding-mini pull-right" style="margin-left: 10px;">
-            <i class="fa fa-eye"></i>
-          </button>
+          <div class="pull-right" id="circle"></div>
         </th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
-        <td>Content Goes Here</td>
-      </tr>
-      <tr>
-        <td>Content Goes Here</td>
-      </tr>
-      <tr>
-        <td>Content Goes Here</td>
-      </tr>
+    <tbody id="todoListBody">
+      
     </tbody>
   </table>
+
+  <!-- Footer -->
+  <div class="row">
+    <div class="small-12">
+      <button id="openTab" class="hollow button padding-mini" style="margin-left: 10px;">
+        <i class="fa fa-eye"></i>
+      </button>
+      <button id="openTab" class="success button padding-mini pull-right" style="margin-left: 10px;">
+        <i class="fa fa-plus"></i> Add Task
+      </button>
+    </div>
+  </div>
+
+  <template id="taskRow">
+    <tr>
+      <td>
+        <div class="row">
+          <span class="small-10 checkbox">
+            <i class="fa fa-square-o checkbox-icon"></i>
+            <span class="list-item">
+            </span>
+          </span>
+          <span class="small-2 list-item-edit pull-right">
+            <i class="fa fa-pencil"></i>
+          </span>
+        </div>
+      </td>
+    </tr>
+  </template>
+  <script src="vendor/foundation.min.js"></script>
+  <script src="vendor/circle-progress.js"></script>
+  <script src="popup.js"></script>
 </body>
 
 </html>

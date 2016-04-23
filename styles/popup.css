@@ -1,0 +1,59 @@
+body {
+  font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+  font-size: 14px;
+  min-width: 100%;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.title {
+  padding-top: 5px;
+}
+
+.fa {
+  font-size: 18px;
+  vertical-align: middle;
+}
+
+.fa.fa-eye {
+  margin-top: -1px;
+}
+
+.fa.fa-plus {
+  padding-right: 3px;
+  padding-left: 3px;
+}
+
+.fa.fa-square-o, .fa.fa-check-square {
+  margin-right: 5px;
+}
+
+.fa.fa-pencil:hover {
+  color: #1788B8;
+}
+
+.stroke-completed {
+  text-decoration: line-through;
+  color: #ccc;
+}
+
+/* overrides chrome default focus outline */
+.button:focus {
+  outline: none;
+}
+
+/* overrides foundation even table row color */
+table tbody tr:nth-child(even) {
+  background-color: #fff;
+}
+
+button.success {
+  margin-right: 10px;
+}
+
+button.padding-mini {
+  /*padding: 5px;*/
+  margin-bottom: 10px;
+}
