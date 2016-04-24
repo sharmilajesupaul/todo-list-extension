@@ -2,10 +2,67 @@ body {
   font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
   font-size: 14px;
   min-width: 100%;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.wrapper {
+  width: 400px;
+  min-height: 200px;
+}
+
+input.datedropper[readonly],
+input.timedropper[readonly] {
+  background-color: #E3F2FA;
+  border: 2px solid gray;
+  cursor: pointer;
+  margin-left: auto;
+  width: 150px;
+  text-align: center;
+  margin-right: auto;
+}
+
+div.colorPicker-palette {
+  width: 150px;
+}
+
+.date-time-picker {
+  display: none;
+  padding: 20px;
+  text-align: center;
+}
+
+.date-time-picker > button {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.row {
+  padding: 10px;
+}
+
+.row.header,
+.row.category {
+  border-bottom: 1px solid #ccc;
+}
+
+.row.footer {
+  border-top: 1px solid #ccc;
+}
+
+.colorpicker-container {
+  margin-top: 3px;
+  margin-right: 10px;
 }
 
 .invisible {
   visibility: hidden;
+}
+
+.row.task,
+.row.category {
+  outline: none;
+  padding: 10px;
 }
 
 .title {
@@ -26,12 +83,24 @@ body {
   padding-left: 3px;
 }
 
-.fa.fa-square-o, .fa.fa-check-square {
+.fa.fa-square-o,
+.fa.fa-check-square {
   margin-right: 5px;
 }
 
-.fa.fa-pencil:hover {
-  color: #1788B8;
+.fa.fa-pencil {
+  color: #555;
+  margin-left: 10px;
+}
+
+.fa.fa-calendar {
+  color: #555;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.fa.fa-calendar:hover {
+  color: darkred;
 }
 
 .stroke-completed {
@@ -39,18 +108,17 @@ body {
   color: #ccc;
 }
 
+
 /* overrides chrome default focus outline */
+
 .button:focus {
   outline: none;
 }
 
-/* overrides foundation even table row color */
-table tbody tr:nth-child(even) {
-  background-color: #fff;
-}
-
-button.success {
+button.success,
+button.hollow {
   margin-right: 10px;
+  margin-left: 10px;
 }
 
 button.padding-mini {
