@@ -22,6 +22,28 @@ $(document).ready(function() {
     this.updated = obj.updated;
   };
 
+  function createBlankTask() {
+    if ('content' in document.createElement('template')) {
+      // Instantiate the table with the existing HTML tbody and the row with the template
+      var t = document.querySelector('#taskRow'),
+        body = t.content.querySelector("span.task-body");
+      body.textContent = ' ';
+
+      // Clone the new row and insert it into the table
+      var tb = document.getElementById("todoListBody");
+      var clone = document.importNode(t.content, true);
+      tb.appendChild(clone);
+      var tasks = $(tb).find('.row.task');
+      var addedTask = tasks[tasks.length - 1];
+
+      $(addedTask).attr('contenteditable', 'true');
+      setTimeout(function() {
+        console.log($(addedTask).find('.task-body')[0]);
+        $($(addedTask).find('.task-body')[0]).click();
+      });
+    }
+  }
+
   function createTask(task) {
     // Test to see if the browser supports the HTML template element by checking
     // for the presence of the template element's content attribute.
@@ -46,7 +68,7 @@ $(document).ready(function() {
 
       // Instantiate the table with the existing HTML tbody and the row with the template
       var t = document.querySelector('#categoryRow'),
-      body = t.content.querySelector("span.category-name");
+        body = t.content.querySelector("span.category-name");
       console.log(body);
       body.textContent = category.name;
 
@@ -146,6 +168,10 @@ $(document).ready(function() {
     meridians: true
   });
 
+  $('#addTask').click(function(event) {
+    createBlankTask();
+  });
+
   $('.wrapper').on('click', '.task-body', function(event) {
     updateTask(event.target);
   });
@@ -159,8 +185,6 @@ $(document).ready(function() {
     var datepicker = $(event.target).parent();
     $(datepicker).slideToggle('slow');
   });
-
-
 
   $('.wrapper').on('keypress', '.task-body[contenteditable="true"]', function(event) {
     if (event.keyCode === 13) {
